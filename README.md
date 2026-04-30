@@ -11,6 +11,12 @@ Feature branches rot quietly. Merge Scout turns branch archaeology into a repeat
 - whether they touched docs, tests, or demo surfaces
 - which ones look cheap to revive versus risky to resurrect
 
+## Install
+
+```bash
+npm install merge-scout
+```
+
 ## CLI
 
 ```bash
@@ -29,9 +35,18 @@ merge-scout scan --repo /path/to/repo --base main --format json
 merge-scout scan --repo /path/to/repo --base main --format markdown
 ```
 
+## Library
+
+```js
+import { analyzeRepo, renderMarkdown } from 'merge-scout';
+
+const report = await analyzeRepo({ repoPath: '/path/to/repo', baseBranch: 'main' });
+console.log(renderMarkdown(report));
+```
+
 ## Sample report
 
-Open `index.html` directly or serve the repo with any static file server to view the phone-friendly sample report. The page renders `sample/report.json`, which is generated from the same shared analysis core as the CLI.
+Open `index.html` directly or serve the repo with any static file server to view the phone-friendly sample report. The page ships with embedded sample data for direct-open previews and also keeps `sample/report.json` alongside it for inspection.
 
 To refresh the bundled sample data:
 

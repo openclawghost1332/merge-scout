@@ -1,12 +1,18 @@
 {
   "name": "merge-scout",
   "version": "0.1.0",
+  "description": "Rank dormant git branches by revival potential with an explainable CLI and sample report.",
   "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
   "bin": {
     "merge-scout": "./bin/merge-scout.js"
   },
   "scripts": {
     "test": "node --test",
     "sample": "node ./scripts/generate-sample-report.mjs"
-  }
+  },
+  "license": "MIT"
 }

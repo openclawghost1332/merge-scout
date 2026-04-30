@@ -13,6 +13,128 @@
         <h1>Loading sample report…</h1>
       </section>
     </main>
+    <script type="application/json" data-embedded-report>{
+  "repoPath": "fixture:merge-scout-demo",
+  "baseBranch": "main",
+  "branches": [
+    {
+      "name": "feature/demo-docs",
+      "baseBranch": "main",
+      "ahead": 2,
+      "behind": 0,
+      "commitCount": 2,
+      "changedFiles": [
+        "README.md",
+        "tests/demo-smoke.test.mjs"
+      ],
+      "lastCommit": {
+        "hash": "8dd3e0e4692405eb7b847568376ea2e57563512f",
+        "subject": "test: add demo smoke test",
+        "committedAt": "2026-04-26T10:00:00+00:00"
+      },
+      "touchesReadme": true,
+      "touchesTests": true,
+      "touchesDocs": false,
+      "touchesDemo": true
+    },
+    {
+      "name": "feature/risky-rewrite",
+      "baseBranch": "main",
+      "ahead": 5,
+      "behind": 3,
+      "commitCount": 5,
+      "changedFiles": [
+        "docs/rewrite.md",
+        "scripts/migrate.mjs",
+        "src/rewrite/api.js",
+        "src/rewrite/core.js",
+        "src/rewrite/state.js",
+        "tests/rewrite.test.mjs"
+      ],
+      "lastCommit": {
+        "hash": "0e384a837791f828c01d663e2576b5e2c4d46ef6",
+        "subject": "feat: add rewrite tests",
+        "committedAt": "2026-04-22T13:00:00+00:00"
+      },
+      "touchesReadme": false,
+      "touchesTests": true,
+      "touchesDocs": true,
+      "touchesDemo": false
+    }
+  ],
+  "scannedAt": "2026-04-30T23:43:05.712Z",
+  "candidates": [
+    {
+      "name": "feature/demo-docs",
+      "baseBranch": "main",
+      "ahead": 2,
+      "behind": 0,
+      "commitCount": 2,
+      "changedFiles": [
+        "README.md",
+        "tests/demo-smoke.test.mjs"
+      ],
+      "lastCommit": {
+        "hash": "8dd3e0e4692405eb7b847568376ea2e57563512f",
+        "subject": "test: add demo smoke test",
+        "committedAt": "2026-04-26T10:00:00+00:00"
+      },
+      "touchesReadme": true,
+      "touchesTests": true,
+      "touchesDocs": false,
+      "touchesDemo": true,
+      "score": 94,
+      "reasons": [
+        "Touches README, which usually signals a visible product slice.",
+        "Ships tests, which suggests the branch moved past pure experimentation.",
+        "Small divergence from main, with no missing base commits.",
+        "Compact file spread makes the branch cheaper to audit and promote.",
+        "Touches a demo or preview surface, which helps outsider-facing validation."
+      ],
+      "risks": []
+    },
+    {
+      "name": "feature/risky-rewrite",
+      "baseBranch": "main",
+      "ahead": 5,
+      "behind": 3,
+      "commitCount": 5,
+      "changedFiles": [
+        "docs/rewrite.md",
+        "scripts/migrate.mjs",
+        "src/rewrite/api.js",
+        "src/rewrite/core.js",
+        "src/rewrite/state.js",
+        "tests/rewrite.test.mjs"
+      ],
+      "lastCommit": {
+        "hash": "0e384a837791f828c01d663e2576b5e2c4d46ef6",
+        "subject": "feat: add rewrite tests",
+        "committedAt": "2026-04-22T13:00:00+00:00"
+      },
+      "touchesReadme": false,
+      "touchesTests": true,
+      "touchesDocs": true,
+      "touchesDemo": false,
+      "score": 37,
+      "reasons": [
+        "Includes docs work that can make the branch easier to revive.",
+        "Ships tests, which suggests the branch moved past pure experimentation."
+      ],
+      "risks": [
+        "Behind main by 3 commits.",
+        "Wide file spread raises merge and regression risk.",
+        "Longer branch history increases the chance of hidden drift."
+      ]
+    }
+  ],
+  "summary": {
+    "branchCount": 2,
+    "topCandidate": "feature/demo-docs",
+    "topScore": 94
+  }
+}
+</script>
     <script type="module" src="./src/browser.js"></script>
   </body>
 </html>

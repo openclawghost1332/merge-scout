@@ -23,8 +23,9 @@ test('renderSampleReport turns report data into branch cards', async () => {
   }
 });
 
-test('browser entry loads the shared sample JSON into the preview shell', () => {
-  assert.match(browserSource, /sample\/report\.json/);
-  assert.match(htmlSource, /Merge Scout/);
+test('browser entry supports embedded sample data for direct-open previews', () => {
+  assert.match(browserSource, /data-embedded-report/);
+  assert.match(browserSource, /JSON\.parse/);
+  assert.match(htmlSource, /data-embedded-report/);
   assert.match(htmlSource, /data-report-root/);
 });
