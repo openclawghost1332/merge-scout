@@ -1,0 +1,12 @@
+{
+  "name": "merge-scout",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "merge-scout": "./bin/merge-scout.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "sample": "node ./scripts/generate-sample-report.mjs"
+  }
+}
